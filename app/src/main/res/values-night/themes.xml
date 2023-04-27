@@ -2,8 +2,8 @@
 <resources>
 
     <style name="Theme.Mindful30" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/light_background</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/dark_background</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
 </resources>
