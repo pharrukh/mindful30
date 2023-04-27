@@ -62,7 +62,6 @@ fun Grid(modifier: Modifier = Modifier) {
                 Text(
                     text = "Mindful30",
                     style = MaterialTheme.typography.displayLarge,
-                    color = MaterialTheme.colorScheme.onBackground,
                 )
             }
 
@@ -71,7 +70,6 @@ fun Grid(modifier: Modifier = Modifier) {
         LazyColumn(
             modifier = modifier
                 .padding(padding)
-                .background(color = MaterialTheme.colorScheme.background)
         ) {
             items(Repository.dailyRecommendations) {
                 GridItem(recommendation = it)
@@ -82,8 +80,11 @@ fun Grid(modifier: Modifier = Modifier) {
 
 @Composable
 fun GridItem(recommendation: DailyRecommendation, modifier: Modifier = Modifier) {
-    Card(modifier = modifier.padding(8.dp)) {
-        Column {
+    Card(
+        modifier = modifier
+            .padding(8.dp)
+    ) {
+        Column(modifier = modifier) {
             Box {
                 Image(
                     modifier = modifier
@@ -117,7 +118,7 @@ fun GridItem(recommendation: DailyRecommendation, modifier: Modifier = Modifier)
 @Preview(showBackground = true)
 @Composable
 fun AppPreviewLight() {
-    Mindful30Theme(darkTheme = false) {
+    Mindful30Theme(useDarkTheme = false) {
         Grid()
     }
 }
@@ -125,7 +126,7 @@ fun AppPreviewLight() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreviewDark() {
-    Mindful30Theme(darkTheme = true) {
+    Mindful30Theme(useDarkTheme = true) {
         Grid()
     }
 }
