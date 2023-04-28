@@ -76,13 +76,18 @@ fun Grid(modifier: Modifier = Modifier) {
 
         }
     ) { padding ->
+        val recommendations = Repository.dailyRecommendations
         LazyColumn(
             modifier = modifier
                 .padding(padding)
         ) {
-            items(Repository.dailyRecommendations) {
-                GridItem(recommendation = it)
-            }
+            items(count = recommendations.size,
+                key = { recommendations[it].dayNumber },
+                itemContent = { index ->
+                    GridItem(recommendation = recommendations[index])
+
+                }
+            )
         }
     }
 }
